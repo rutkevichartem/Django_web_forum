@@ -1,0 +1,31 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Создание задачи
+{% endblock %}
+
+{% block active %}
+        <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Главная</a></li>
+        <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">О нас</a></li>
+        <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Контакты</a></li>
+        <li class="nav-item"><a href="{% url 'create' %}" class="nav-link active" aria-current="page">Создание темы</a></li>
+{% endblock %}
+
+{% block titl %}
+<h1>Создать новую тему</h1>
+{% endblock %}
+
+{% block img %}
+<img class="w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDNZdxXmmNFc67eX4G68vRx-GgZj3j4AOmUg&usqp=CAU">
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.title }}<br>
+        {{ form.task }}<br>
+        {{ form.data }}<br>
+        <button type="submit" class="btn btn-success">Добавить</button>
+        <span>{{ error }}</span>
+    </form>
+{% endblock %}

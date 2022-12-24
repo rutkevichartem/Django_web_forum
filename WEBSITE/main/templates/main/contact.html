@@ -1,0 +1,31 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block active %}
+        <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Главная</a></li>
+        <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">О нас</a></li>
+        <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link active" aria-current="page">Контакты</a></li>
+        <li class="nav-item"><a href="{% url 'create' %}" class="nav-link">Создание темы</a></li>
+{% endblock %}
+
+{% block titl %}
+<h3>Связаться с нами:</h3>
+{% endblock %}
+
+{% block img %}
+<img class="w-100" src="https://kom-mk.by/media/contact-3_-1024x324.jpg">
+{% endblock %}
+
+{% block content %}
+{% for el in contacts %}
+      <h5>{{ el.title }}</h5>
+      <p>{{ el.about }}</p>
+      <h5>{{ el.title_1 }}</h5>
+      <p>{{ el.about_2 }}</p>
+{% endfor %}
+{% endblock %}
+
+
